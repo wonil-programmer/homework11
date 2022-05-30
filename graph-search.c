@@ -235,7 +235,7 @@ void DFS_searchGraph(graphType* g, int v) {
    top = NULL; // 스택의 top을 NULL로 지정
    push(v); // 정점을 스택에 삽입
    g->visited[v] = TRUE; // 정점 방문 배열 TRUE로 변경
-   printf(" %d", v);
+   printf("%d ", v);
    
    /* 스택이 공백일 때까지 반복 */
    while(!isStackEmpty()) {
@@ -246,7 +246,7 @@ void DFS_searchGraph(graphType* g, int v) {
 		if (!g->visited[w->vertex]) {
 			push(w->vertex);
 			g->visited[w->vertex] = TRUE; // w의 정점 인덱스의 방문기록배열 TRUE로 변경
-			printf(" %d", w->vertex);
+			printf(" -> %d", w->vertex);
 			v = w->vertex; // w의 정점값을 v에 대입
 			w = g->adjacentList[v]; // 탐색노드를 v로 변경
 		}
@@ -362,7 +362,7 @@ void BFS_searchGraph(graphType* g, int v) {
 			/* 모든 정점을 방문할때까지 반복 */
    			if (!g->visited[w->vertex]) {
    			   g->visited[w->vertex] = TRUE; // 정점 방문기록 표시
-   			   printf("%d ", w->vertex);
+   			   printf(" -> %d", w->vertex);
    			   enQueue(q, w->vertex); // 큐에 해당 정점 삽입
    			}
    	    }
